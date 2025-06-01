@@ -27,12 +27,12 @@
 // }
 // ];
 
-    type Faculity = {
-        id:number,
-        faculty: string,
-        subjects: string[],
-        countStudents: number,
-    }
+    // type Faculity = {
+    //     id:number,
+    //     faculty: string,
+    //     subjects: string[],
+    //     countStudents: number,
+    // }
 
 
     // const movies = [
@@ -86,22 +86,120 @@
     //     },
     //     ];
 
-            type Movie = {
-                id:number,
-                title: string,
-                year: number,
-                released: string,
-                runtime: string,
-                genre: string[],
-                director: string,
-                writer: string,
-                actors: string[],
-                plot: string,
-                country: string,
-                poster: string,
-                imdbRating:number,
-                imdbVotes:number,
-                type:string,
-                boxOffice:string,
-                production:string,
+            // type Movie = {
+            //     id:number,
+            //     title: string,
+            //     year: number,
+            //     released: string,
+            //     runtime: string,
+            //     genre: string[],
+            //     director: string,
+            //     writer: string,
+            //     actors: string[],
+            //     plot: string,
+            //     country: string,
+            //     poster: string,
+            //     imdbRating:number,
+            //     imdbVotes:number,
+            //     type:string,
+            //     boxOffice:string,
+            //     production:string,
+            // }
+
+
+
+
+
+            const users = [
+                {
+                name: "Harry Felton",
+                phone: "(09) 897 33 33",
+                email: "felton@gmail.com",
+                animals: ["cat"],
+                cars: ["bmw"],
+                hasChildren: false,
+                hasEducation: true
+                },
+                {
+                name: "May Sender",
+                phone: "(09) 117 33 33",
+                email: "sender22@gmail.com",
+                hasChildren: true,
+                hasEducation: true
+                },
+                {
+                name: "Henry Ford",
+                phone: "(09) 999 93 23",
+                email: "ford0@gmail.com",
+                cars: ["bmw", "audi"],
+                hasChildren: true,
+                hasEducation: false
+                }
+                ]
+
+
+            //1  
+            
+            function getName() : string{
+                const names = users.map(user=>user.name).join(", ")
+                return names
             }
+
+
+            console.log(getName())
+
+
+
+
+            //2
+            function numCars() : number{
+                let total: number = 0;
+                for(const user of users){
+                    if(user.cars){
+                        total += user.cars.length
+                    }
+                }
+                return total
+            }
+
+
+            console.log(numCars())
+
+
+
+
+            //3
+            function hasEducation():Object{
+                return users.filter(user => user.hasEducation)
+            }
+
+            console.log(hasEducation())
+
+
+
+            //4
+            function hasAnimal():Object{
+                return users.filter(user => user.animals)
+            }
+
+
+            console.log(hasAnimal())
+
+
+
+            //5
+
+            function getUsersCar():string{
+
+                let car:string[] = []
+                for (const user of users){
+                    if(user.cars){
+                        car.push(...user.cars)
+                    }
+                }
+
+                return car.join(', ')
+            }
+
+
+            console.log(getUsersCar())
