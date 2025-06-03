@@ -108,9 +108,17 @@
 
 
 
+            type Users ={
+                name: string,
+                phone: string,
+                email: string,
+                animals?: string[],
+                cars?: string[],
+                hasChildren: boolean,
+                hasEducation: boolean,
+            }
 
-
-            const users = [
+            const users: Users[] = [
                 {
                 name: "Harry Felton",
                 phone: "(09) 897 33 33",
@@ -140,19 +148,19 @@
 
             //1  
             
-            function getName() : string{
+            function getName(users: Users[]) : string{
                 const names = users.map(user=>user.name).join(", ")
                 return names
             }
 
 
-            console.log(getName())
+            console.log(getName(users))
 
 
 
 
             //2
-            function numCars() : number{
+            function numCars(users: Users[]) : number{
                 let total: number = 0;
                 for(const user of users){
                     if(user.cars){
@@ -163,33 +171,33 @@
             }
 
 
-            console.log(numCars())
+            console.log(numCars(users))
 
 
 
 
             //3
-            function hasEducation():Object{
+            function hasEducation(users: Users[]):Users[]{
                 return users.filter(user => user.hasEducation)
             }
 
-            console.log(hasEducation())
+            console.log(hasEducation(users))
 
 
 
             //4
-            function hasAnimal():Object{
+            function hasAnimal(users: Users[]):Users[]{
                 return users.filter(user => user.animals)
             }
 
 
-            console.log(hasAnimal())
+            console.log(hasAnimal(users))
 
 
 
             //5
 
-            function getUsersCar():string{
+            function getUsersCar(users: Users[]):string{
 
                 let car:string[] = []
                 for (const user of users){
@@ -202,4 +210,4 @@
             }
 
 
-            console.log(getUsersCar())
+            console.log(getUsersCar(users))
